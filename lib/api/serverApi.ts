@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
-import type {Note} from '../../types/note';
-import type {User} from '../../types/user';
+import type {Note} from '@/types/note';
+import type {User} from '@/types/user';
 import { fetchAxios } from './api';
 import { FetchNotesRequest, FetchNotesResponse, PER_PAGE } from './clientApi';
 
