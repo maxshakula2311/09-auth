@@ -2,7 +2,7 @@
 
 import css from "./NoteForm.module.css";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createNote, CreateNoteProps } from "@/lib/api";
+import { createNote, CreateNoteRequest } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 import { sidebarTags } from "@/lib/tags";
 import { useNoteStore } from "@/lib/store/noteStore";
@@ -38,7 +38,7 @@ const NoteForm = () => {
   });
 
   const handleAction = (formData: FormData) => {
-    const data = Object.fromEntries(formData) as CreateNoteProps;
+    const data = Object.fromEntries(formData) as CreateNoteRequest;
     mutate(data);
   };
 

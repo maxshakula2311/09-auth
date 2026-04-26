@@ -6,4 +6,9 @@ export const sidebarTags: NoteTag[] = [
   "Personal",
   "Meeting",
   "Shopping",
+  "Ideas",
+  "Travel",
+  "Finance",
+  "Health",
+  "Important",
 ];
