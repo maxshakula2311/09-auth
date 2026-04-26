@@ -7,7 +7,7 @@ import { useDebouncedCallback } from "use-debounce";
 import NoteList from "@/components/NoteList/NoteList";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import css from "./NotesPage.module.css";
-import { fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/clientApi";
 import Pagination from "@/components/Pagination/Pagination";
 import Link from "next/link";
 
@@ -60,7 +60,7 @@ const NotesClient = ({ tag }: NotesClientProps) => {
         {isLoading && <div>Loading posts...</div>}
         {isError && (
           <>
-            <div>Something went wrong...</div>
+            <div>Something wrong...</div>
             <p>{error.message}</p>
           </>
         )}
