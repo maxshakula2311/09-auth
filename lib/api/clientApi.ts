@@ -37,7 +37,7 @@ export async function fetchNotes({
 }
 
 export async function fetchOneNote(id: string): Promise<Note> {
-  const response = await fetchAxios.get<Note>(`notes/${id}`);
+  const response = await fetchAxios.get<Note>(`/notes/${id}`);
   return response.data;
 }
 
@@ -66,9 +66,8 @@ export const login = async (user: AuthRequest) => {
   return data;
 };
 
-export const logout = async () => {
-  const { data } = await fetchAxios.post<User>("/auth/logout");
-  return data;
+export const logout = async (): Promise<void> => {
+  await fetchAxios.post("/auth/logout");
 };
 
 export const checkSession = async () => {
