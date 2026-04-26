@@ -1,4 +1,4 @@
-import { fetchOneNote } from "@/lib/api";
+import { fetchServerOneNote } from "@/lib/api/serverApi";
 import NoteDetailsClient from "./NoteDetails.client";
 import {
   QueryClient,
@@ -14,7 +14,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const note = await fetchOneNote(id);
+  const note = await fetchServerOneNote(id);
 
   return {
     title: `${note.title} | NoteHub`,
@@ -48,7 +48,7 @@ const NoteDetails = async ({ params }: NoteDetailsProps) => {
 
   await queryClient.prefetchQuery({
     queryKey: ["note", id],
-    queryFn: () => fetchOneNote(id),
+    queryFn: () => fetchServerOneNote(id),
   });
 
   return (
